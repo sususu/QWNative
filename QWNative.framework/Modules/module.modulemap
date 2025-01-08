@@ -1,0 +1,11 @@
+framework module QWNative {
+  umbrella header "QWNative.h"
+  export *
+
+  module * { export * }
+}
+
+module QWNative.Swift {
+  header "QWNative-Swift.h"
+  requires objc
+}

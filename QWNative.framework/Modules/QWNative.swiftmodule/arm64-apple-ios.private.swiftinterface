@@ -1,0 +1,169 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.0.2 effective-5.10 (swiftlang-6.0.2.1.2 clang-1600.0.26.4)
+// swift-module-flags: -target arm64-apple-ios14 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name QWNative
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface
+import CommonCrypto
+import Foundation
+import Photos
+@_exported import QWNative
+import Swift
+import UIKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+@objc @objcMembers public class AiSmart : ObjectiveC.NSObject, Swift.Codable, Swift.Identifiable {
+  @objc final public let id: Swift.String
+  @objc final public let name: Swift.String
+  @objc final public let aismartCode: Swift.String
+  @objc final public let asType: Swift.Int
+  @objc final public let authorizedUser: Swift.Int
+  @objc final public let avatarUrl: Swift.String
+  @objc final public let creator: Swift.String
+  @objc final public let fileSize: Swift.String
+  @objc final public let fileType: Swift.String
+  @objc final public let inputFile: Swift.Int
+  @objc final public let inputImg: Swift.Int
+  @objc final public let inputText: Swift.Int
+  @objc final public let presetGreet: Swift.String
+  @objc final public let presetQuiz: [Swift.String]
+  @objc final public let role: Swift.String
+  @objc final public let usageCount: Swift.Int
+  @objc final public let homepage: Swift.Int
+  @objc final public let imgSize: Swift.String
+  @objc final public let imgType: Swift.String
+  @objc public init(id: Swift.String, name: Swift.String, aismartCode: Swift.String, asType: Swift.Int, authorizedUser: Swift.Int, avatarUrl: Swift.String, creator: Swift.String, fileSize: Swift.String, fileType: Swift.String, inputFile: Swift.Int, inputImg: Swift.Int, inputText: Swift.Int, presetGreet: Swift.String, presetQuiz: [Swift.String], role: Swift.String, usageCount: Swift.Int, homepage: Swift.Int, imgSize: Swift.String, imgType: Swift.String)
+  public typealias ID = Swift.String
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+}
+@objc @objcMembers public class DrawStyle : ObjectiveC.NSObject, Swift.Codable {
+  @objc dynamic public var name: Swift.String
+  @objc dynamic public var avatarUrl: Swift.String
+  @objc dynamic public var value: Swift.Int
+  @objc public init(avatarUrl: Swift.String, name: Swift.String, value: Swift.Int)
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+}
+@objc @objcMembers public class ErrorCode : ObjectiveC.NSObject, Swift.Codable {
+  @objc public static let PARAMETER_ERROR: Swift.String
+  @objc public static let TIME_OUT: Swift.String
+  @objc public static let NO_ACCESS_SERVER: Swift.String
+  @objc public static let UNKNOWN_ERROR: Swift.String
+  @objc public var code: Swift.String
+  @objc public var message: Swift.String
+  @objc public init(code: Swift.String, message: Swift.String)
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+}
+@objc @objcMembers public class MemberInfo : ObjectiveC.NSObject, Swift.Codable {
+  @objc dynamic public var level: Swift.Int
+  @objc dynamic public var availableNum: Swift.Int
+  @objc dynamic public var freeDay: Swift.Int
+  @objc public init(level: Swift.Int, availableNum: Swift.Int, freeDay: Swift.Int)
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+}
+@objc @objcMembers public class TimeoutConfig : ObjectiveC.NSObject, Swift.Codable {
+  @objc final public let requestTimeout: Foundation.TimeInterval
+  @objc final public let resourceTimeout: Foundation.TimeInterval
+  @objc public init(requestTimeout: Foundation.TimeInterval = 60, resourceTimeout: Foundation.TimeInterval = 60)
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+}
+@objc @objcMembers public class WatchInfo : ObjectiveC.NSObject, Swift.Codable {
+  @objc dynamic public var payModel: QWNative.PaymentModel
+  @objc dynamic public var licenseModel: QWNative.LicenseModel
+  @objc dynamic public var memberModel: QWNative.MemberModel
+  @objc dynamic public var wid: Swift.String
+  @objc dynamic public var name: Swift.String
+  @objc dynamic public var avatarUrl: Swift.String
+  @objc dynamic public var resolution: Swift.String
+  @objc dynamic public var thuResolution: Swift.String
+  @objc dynamic public var language: Swift.String
+  @objc dynamic public var supportedLanguages: Swift.String
+  @objc dynamic public var freeDay: Swift.Int
+  @objc dynamic public var freeNum: Swift.Int
+  @objc dynamic public var vipNum: Swift.Int
+  @objc dynamic public var sVipNum: Swift.Int
+  @objc public init(payModel: QWNative.PaymentModel, wid: Swift.String)
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+}
+@objc(PaymentModel) public enum PaymentModel : Swift.Int, Swift.Codable {
+  case C_END_PAY = 0, LICENSE_PAY = 1
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc(LicenseModel) public enum LicenseModel : Swift.Int, Swift.Codable {
+  case KNOWN_DEVICE = 0, CONSUMER_DEVICE = 1
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc(MemberModel) public enum MemberModel : Swift.Int, Swift.Codable {
+  case FREE = 0, VIP = 1, S_VIP = 2
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc(AnalysisType) public enum AnalysisType : Swift.Int, Swift.Codable {
+  case HEALTH_DATA_ANALYSIS = 1, HEALTH_TIPS = 2, SLEEP_ANALYSIS = 3, HEART_RATE_ANALYSIS = 4, BLOOD_OXYGEN_ANALYSIS = 5, STEP_ANALYSIS = 6, BLOOD_PRESSURE_ANALYSIS = 7, BODY_TEMPERATURE_ANALYSIS = 8, HEALTH_PLAN_PRO = 9, HEALTH_PLAN_FAMILY_EDITION = 10, WEIGHT_LOSS_PLAN = 11, DIET_ADVICE_ANALYSIS = 12, DIET_PLAN = 13, STRESS_ANALYSIS = 14
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objcMembers public class AFlash : ObjectiveC.NSObject {
+  @objc public static let shared: QWNative.AFlash
+  @objc public func setTimeoutConfig(timeoutConfig: QWNative.TimeoutConfig) -> QWNative.AFlash
+  @objc public func initialize(uid: Swift.String?, watchInfos: [QWNative.WatchInfo], onSuccess: @escaping (_ watchInfos: [QWNative.WatchInfo]) -> Swift.Void, onFailure: @escaping (_ errorCode: QWNative.ErrorCode) -> Swift.Void)
+  @objc public func speechToText(requestId: Swift.String, wid: Swift.String, filePath: Swift.String, fileFormat: Swift.String, onSuccess: @escaping (_ requestId: Swift.String, _ text: Swift.String) -> Swift.Void, onFailure: @escaping (_ requestId: Swift.String, _ errorCode: QWNative.ErrorCode) -> Swift.Void)
+  @objc public func speechToTextWithFileBytes(requestId: Swift.String, wid: Swift.String, fileBytes: [Swift.UInt8], fileFormat: Swift.String, onSuccess: @escaping (_ requestId: Swift.String, _ text: Swift.String) -> Swift.Void, onFailure: @escaping (_ requestId: Swift.String, _ errorCode: QWNative.ErrorCode) -> Swift.Void)
+  @objc public func speechToTextWithData(requestId: Swift.String, wid: Swift.String, data: Foundation.Data, fileFormat: Swift.String, onSuccess: @escaping (_ requestId: Swift.String, _ text: Swift.String) -> Swift.Void, onFailure: @escaping (_ requestId: Swift.String, _ errorCode: QWNative.ErrorCode) -> Swift.Void)
+  @objc public func speechToTextViaLanguage(requestId: Swift.String, wid: Swift.String, language: Swift.String, data: Foundation.Data, fileFormat: Swift.String, onSuccess: @escaping (_ requestId: Swift.String, _ text: Swift.String) -> Swift.Void, onFailure: @escaping (_ requestId: Swift.String, _ errorCode: QWNative.ErrorCode) -> Swift.Void)
+  @objc public func textToSpeech(requestId: Swift.String, wid: Swift.String, text: Swift.String, dirPath: Swift.String, fileFormat: Swift.String, onSuccess: @escaping (_ requestId: Swift.String, _ filePath: Swift.String) -> Swift.Void, onFailure: @escaping (_ requestId: Swift.String, _ errorCode: QWNative.ErrorCode) -> Swift.Void)
+  @objc public func textToSpeechWithFileBytes(requestId: Swift.String, wid: Swift.String, text: Swift.String, fileFormat: Swift.String, onSuccess: @escaping (_ requestId: Swift.String, _ fileBytes: [Swift.UInt8]) -> Swift.Void, onFailure: @escaping (_ requestId: Swift.String, _ errorCode: QWNative.ErrorCode) -> Swift.Void)
+  @objc public func textToSpeechWithData(requestId: Swift.String, wid: Swift.String, text: Swift.String, fileFormat: Swift.String, onSuccess: @escaping (_ requestId: Swift.String, _ data: Foundation.Data) -> Swift.Void, onFailure: @escaping (_ requestId: Swift.String, _ errorCode: QWNative.ErrorCode) -> Swift.Void)
+  @objc public func textChat(requestId: Swift.String, wid: Swift.String, language: Swift.String? = nil, inputContent: Swift.String, contentId: Swift.String, onSuccess: @escaping (_ requestId: Swift.String, _ sendTextContent: Swift.String, _ answerTextContent: Swift.String, _ contentId: Swift.String, _ freeDay: Swift.Int, _ freeNum: Swift.Int, _ vipNum: Swift.Int, _ sVipNum: Swift.Int) -> Swift.Void, onFailure: @escaping (_ requestId: Swift.String, _ errorCode: QWNative.ErrorCode) -> Swift.Void)
+  @objc public func voiceChat(requestId: Swift.String, wid: Swift.String, language: Swift.String? = nil, filePath: Swift.String, fileFormat: Swift.String, contentId: Swift.String, onSuccess: @escaping (_ requestId: Swift.String, _ sendTextContent: Swift.String, _ answerTextContent: Swift.String, _ contentId: Swift.String, _ freeDay: Swift.Int, _ freeNum: Swift.Int, _ vipNum: Swift.Int, _ sVipNum: Swift.Int) -> Swift.Void, onFailure: @escaping (_ requestId: Swift.String, _ errorCode: QWNative.ErrorCode) -> Swift.Void)
+  @objc public func voiceChatWithFileBytes(requestId: Swift.String, wid: Swift.String, language: Swift.String? = nil, fileBytes: [Swift.UInt8], fileFormat: Swift.String, contentId: Swift.String, onSuccess: @escaping (_ requestId: Swift.String, _ sendTextContent: Swift.String, _ answerTextContent: Swift.String, _ contentId: Swift.String, _ freeDay: Swift.Int, _ freeNum: Swift.Int, _ vipNum: Swift.Int, _ sVipNum: Swift.Int) -> Swift.Void, onFailure: @escaping (_ requestId: Swift.String, _ errorCode: QWNative.ErrorCode) -> Swift.Void)
+  @objc public func voiceChatWithData(requestId: Swift.String, wid: Swift.String, language: Swift.String? = nil, data: Foundation.Data, fileFormat: Swift.String, contentId: Swift.String, onSuccess: @escaping (_ requestId: Swift.String, _ sendTextContent: Swift.String, _ answerTextContent: Swift.String, _ contentId: Swift.String, _ freeDay: Swift.Int, _ freeNum: Swift.Int, _ vipNum: Swift.Int, _ sVipNum: Swift.Int) -> Swift.Void, onFailure: @escaping (_ requestId: Swift.String, _ errorCode: QWNative.ErrorCode) -> Swift.Void)
+  @objc public func fetchDrawStyleList(requestId: Swift.String, wid: Swift.String, language: Swift.String, onSuccess: @escaping (_ requestId: Swift.String, _ drawStyles: [QWNative.DrawStyle]) -> Swift.Void, onFailure: @escaping (_ requestId: Swift.String, _ errorCode: QWNative.ErrorCode) -> Swift.Void)
+  @objc public func textDrawing(requestId: Swift.String, wid: Swift.String, language: Swift.String? = nil, inputContent: Swift.String, imgFormat: Swift.String = "jpeg", style: Swift.Int = 0, onSuccess: @escaping (_ requestId: Swift.String, _ sendTextContent: Swift.String, _ imgUrl: Swift.String, _ freeDay: Swift.Int, _ freeNum: Swift.Int, _ vipNum: Swift.Int, _ sVipNum: Swift.Int) -> Swift.Void, onFailure: @escaping (_ requestId: Swift.String, _ errorCode: QWNative.ErrorCode) -> Swift.Void)
+  @objc public func textDrawingToFile(requestId: Swift.String, wid: Swift.String, language: Swift.String? = nil, inputContent: Swift.String, dirPath: Swift.String?, imgFormat: Swift.String = "jpeg", style: Swift.Int = 0, onSuccess: @escaping (_ requestId: Swift.String, _ sendTextContent: Swift.String, _ filePath: Swift.String, _ thuFilePath: Swift.String?, _ freeDay: Swift.Int, _ freeNum: Swift.Int, _ vipNum: Swift.Int, _ sVipNum: Swift.Int) -> Swift.Void, onFailure: @escaping (_ requestId: Swift.String, _ errorCode: QWNative.ErrorCode) -> Swift.Void)
+  @objc public func textDrawingToData(requestId: Swift.String, wid: Swift.String, language: Swift.String? = nil, inputContent: Swift.String, imgFormat: Swift.String = "jpeg", style: Swift.Int = 0, onSuccess: @escaping (_ requestId: Swift.String, _ sendTextContent: Swift.String, _ imgData: Foundation.Data, _ thuImgData: Foundation.Data?, _ freeDay: Swift.Int, _ freeNum: Swift.Int, _ vipNum: Swift.Int, _ sVipNum: Swift.Int) -> Swift.Void, onFailure: @escaping (_ requestId: Swift.String, _ errorCode: QWNative.ErrorCode) -> Swift.Void)
+  @objc public func voiceDrawingWithFileToURL(requestId: Swift.String, wid: Swift.String, language: Swift.String? = nil, filePath: Swift.String, audioFormat: Swift.String, imgFormat: Swift.String = "jpeg", style: Swift.Int = 0, onSuccess: @escaping (_ requestId: Swift.String, _ sendTextContent: Swift.String, _ imgUrl: Swift.String, _ freeDay: Swift.Int, _ freeNum: Swift.Int, _ vipNum: Swift.Int, _ sVipNum: Swift.Int) -> Swift.Void, onFailure: @escaping (_ requestId: Swift.String, _ errorCode: QWNative.ErrorCode) -> Swift.Void)
+  @objc public func voiceDrawingWithDataToURL(requestId: Swift.String, wid: Swift.String, language: Swift.String? = nil, data: Foundation.Data, audioFormat: Swift.String, imgFormat: Swift.String = "jpeg", style: Swift.Int = 0, onSuccess: @escaping (_ requestId: Swift.String, _ sendTextContent: Swift.String, _ imgUrl: Swift.String, _ freeDay: Swift.Int, _ freeNum: Swift.Int, _ vipNum: Swift.Int, _ sVipNum: Swift.Int) -> Swift.Void, onFailure: @escaping (_ requestId: Swift.String, _ errorCode: QWNative.ErrorCode) -> Swift.Void)
+  @objc public func voiceDrawingWithFileBytesToFile(requestId: Swift.String, wid: Swift.String, language: Swift.String? = nil, fileBytes: [Swift.UInt8], audioFormat: Swift.String, dirPath: Swift.String?, imgFormat: Swift.String = "jpeg", style: Swift.Int = 0, onSuccess: @escaping (_ requestId: Swift.String, _ sendTextContent: Swift.String, _ filePath: Swift.String, _ thuFilePath: Swift.String?, _ freeDay: Swift.Int, _ freeNum: Swift.Int, _ vipNum: Swift.Int, _ sVipNum: Swift.Int) -> Swift.Void, onFailure: @escaping (_ requestId: Swift.String, _ errorCode: QWNative.ErrorCode) -> Swift.Void)
+  @objc public func voiceDrawingWithDataToData(requestId: Swift.String, wid: Swift.String, language: Swift.String? = nil, data: Foundation.Data, audioFormat: Swift.String, imgFormat: Swift.String = "jpeg", style: Swift.Int = 0, onSuccess: @escaping (_ requestId: Swift.String, _ sendTextContent: Swift.String, _ imgData: Foundation.Data, _ thuImgData: Foundation.Data?, _ freeDay: Swift.Int, _ freeNum: Swift.Int, _ vipNum: Swift.Int, _ sVipNum: Swift.Int) -> Swift.Void, onFailure: @escaping (_ requestId: Swift.String, _ errorCode: QWNative.ErrorCode) -> Swift.Void)
+  @objc public func fetchAgentList(requestId: Swift.String, wid: Swift.String, language: Swift.String, pageSize: Swift.Int = 10, pageNum: Swift.Int = 1, onSuccess: @escaping (_ requestId: Swift.String, _ totalPage: Swift.Int, _ currentPage: Swift.Int, _ aiSmarts: [QWNative.AiSmart]) -> Swift.Void, onFailure: @escaping (_ requestId: Swift.String, _ errorCode: QWNative.ErrorCode) -> Swift.Void)
+  @objc public func chat(requestId: Swift.String, wid: Swift.String, language: Swift.String? = nil, code: Swift.String, inputType: Swift.String, contentId: Swift.String? = nil, textContent: Swift.String? = nil, data: Foundation.Data? = nil, fileFormat: Swift.String? = nil, onSuccess: @escaping (_ requestId: Swift.String, _ sendTextContent: Swift.String, _ outputType: Swift.String, _ contentId: Swift.String, _ answerTextContent: Swift.String?, _ imgUrl: Swift.String?, _ thumbnail: Swift.String?, _ freeDay: Swift.Int, _ freeNum: Swift.Int, _ vipNum: Swift.Int, _ sVipNum: Swift.Int) -> Swift.Void, onFailure: @escaping (_ requestId: Swift.String, _ errorCode: QWNative.ErrorCode) -> Swift.Void)
+  @objc public func analyzeData(requestId: Swift.String, wid: Swift.String, data: Foundation.Data, onSuccess: @escaping (_ requestId: Swift.String, _ content: Swift.String, _ memberInfo: QWNative.MemberInfo) -> Swift.Void, onFailure: @escaping (_ requestId: Swift.String, _ errorCode: QWNative.ErrorCode) -> Swift.Void)
+  @objc deinit
+}
+extension QWNative.PaymentModel : Swift.Equatable {}
+extension QWNative.PaymentModel : Swift.Hashable {}
+extension QWNative.PaymentModel : Swift.RawRepresentable {}
+extension QWNative.LicenseModel : Swift.Equatable {}
+extension QWNative.LicenseModel : Swift.Hashable {}
+extension QWNative.LicenseModel : Swift.RawRepresentable {}
+extension QWNative.MemberModel : Swift.Equatable {}
+extension QWNative.MemberModel : Swift.Hashable {}
+extension QWNative.MemberModel : Swift.RawRepresentable {}
+extension QWNative.AnalysisType : Swift.Equatable {}
+extension QWNative.AnalysisType : Swift.Hashable {}
+extension QWNative.AnalysisType : Swift.RawRepresentable {}
